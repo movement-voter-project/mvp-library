@@ -37,7 +37,7 @@
     "dotenv": "^8.2.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.1",
-    "eslint-config-standard": "^17.1.0",
+    "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.2.6",
@@ -61,8 +61,7 @@
     "watch": "npm run build && concurrently \"nodemon --inspect=0.0.0.0 -r dotenv/config -e js,ejs server/index.js\" \"sass --watch --load-path=custom/styles --load-path=styles/partials styles:public/css\"",
     "test": "NODE_ENV=test PORT=3001 jest --setupFiles dotenv/config --setupTestFrameworkScriptFile='./test/utils/bootstrap.js' --forceExit",
     "test:cover": "NODE_ENV=test PORT=3001 nyc --include=server/** --reporter=html --reporter=text jest test/**/*.test.js --setupFiles dotenv/config --setupTestFrameworkScriptFile='./test/utils/bootstrap.js' --forceExit",
-    "lint": "eslint ./server",
-    "gcp-build": "./bin/install_customizations && npm run build && ./bin/update_gae_pkg"
+    "lint": "eslint ./server"
   },
   "repository": {
     "type": "git",
