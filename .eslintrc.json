@@ -1,7 +1,8 @@
 {
-    "extends": "standard",
+    "extends": ["standard", "prettier"],
     "plugins": [
-        "standard"
+        "standard",
+        "prettier"
     ],
     "parserOptions": {
       "ecmaVersion": 2019
@@ -24,6 +25,7 @@
         "named": "never"
       }],
       "object-curly-spacing": ["error", "never"],
-      "prefer-const": ["error"]
+      "prefer-const": ["error"],
+      "prettier/prettier": "error"
     }
 }
