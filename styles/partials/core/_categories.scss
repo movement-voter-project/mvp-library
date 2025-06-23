@@ -1,4 +1,3 @@
-
 // Upper Body
 //------------------------------------------------------------------------------
 .g-upper-body {
@@ -82,11 +81,8 @@
         color: $accent;
       }
     }
-
-
   }
 }
-
 
 // Body
 //------------------------------------------------------------------------------
@@ -106,14 +102,14 @@
     height: 90.9%;
     overflow: auto;
 
-    @include tablet{
-  		display: none;
-  	}
-  	@include desktop{
-  		display: block;
+    @include tablet {
+      display: none;
+    }
+    @include desktop {
+      display: block;
       padding: 10px 0;
       width: 180px;
-  	}
+    }
     @media (min-width: 1175px) {
       display: block;
       padding: 10px 20px;
@@ -125,7 +121,8 @@
       top: 50px;
     }
 
-    .section-kicker, .sibling-kicker {
+    .section-kicker,
+    .sibling-kicker {
       font-family: $font-sans;
       font-weight: 600;
       text-transform: capitalize;
@@ -142,7 +139,8 @@
       margin-top: 0;
     }
 
-    ul.section, ul.sibling {
+    ul.section,
+    ul.sibling {
       list-style-type: none;
       margin: 0 0 20px 0;
       padding: 0;
@@ -169,7 +167,6 @@
         a:hover {
           color: $accent;
         }
-
       }
     }
 
@@ -178,9 +175,6 @@
       margin: 40px 0 40px 0;
       padding: 20px;
       border: 1px solid $gray-60;
-      -webkit-box-shadow: -8px -8px 0px 0px rgba(236,236,236,1);
-      -moz-box-shadow: -8px -8px 0px 0px rgba(236,236,236,1);
-      box-shadow: -8px -8px 0px 0px rgba(236,236,236,1);
 
       .foldericon {
         color: #444;
@@ -190,7 +184,7 @@
     }
 
     ul.subsection {
-      padding:0;
+      padding: 0;
 
       li {
         margin-left: 17px;
@@ -198,7 +192,7 @@
         text-indent: 3px;
 
         &:before {
-          content: "";
+          content: '';
           border-bottom: 1px solid $gray-50;
           width: 10px;
           display: inline-block;
@@ -224,17 +218,21 @@
       word-break: keep-all; // don't word break inside tables
     }
 
-    p, ul, li, dt, dd {
+    p,
+    ul,
+    li,
+    dt,
+    dd {
       font-family: $font-sans;
       font-weight: 300;
       font-size: 1rem;
       line-height: 1.4;
 
-      @include tablet{
+      @include tablet {
         font-size: 1.125rem;
         line-height: 1.5;
       }
-      @include desktop{
+      @include desktop {
         font-size: 1.125rem;
         line-height: 1.5;
       }
@@ -250,9 +248,8 @@
       }
 
       &:empty {
-        height: 1.125rem
+        height: 1.125rem;
       }
-
     }
 
     h1 {
@@ -273,10 +270,10 @@
       margin: 20px auto;
       cursor: pointer; // images can be opened in a modal
 
-      @include tablet{
+      @include tablet {
         max-width: 580px;
       }
-      @include desktop{
+      @include desktop {
         max-width: 580px;
       }
     }
@@ -284,7 +281,8 @@
     /* google output sometimes breaks <li>s across separate
        parent <ul>s, they apply margin:0 in default output
        so that they are visually contiguous */
-    ul, ol {
+    ul,
+    ol {
       margin: 0;
       // padding: 0;
 
@@ -300,9 +298,6 @@
       margin: 40px 0 40px 0;
       padding: 20px 0px 20px 40px;
       border: 1px solid $gray-60;
-      -webkit-box-shadow: -4px -4px 0px 0px #efefef;
-      -moz-box-shadow: -4px -4px 0px 0px #efefef;
-      box-shadow: -4px -4px 0px 0px #efefef;
       position: relative;
 
       h3 {
@@ -366,15 +361,18 @@
     }
 
     /* nested lists */
-    ul.level-1 li, ol.level-1 li {
+    ul.level-1 li,
+    ol.level-1 li {
       margin-left: 40px;
     }
 
-    ul.level-2 li, ol.level-2 li {
+    ul.level-2 li,
+    ol.level-2 li {
       margin-left: 60px;
     }
 
-    ul.level-3 li, ol.level-3 li {
+    ul.level-3 li,
+    ol.level-3 li {
       margin-left: 80px;
     }
 
@@ -383,16 +381,13 @@
       color: $accent-dark;
       padding: 1px 0px;
       margin: 0 4px;
-      -webkit-box-shadow: 4px 0px 0px $accent-lightest, -4px 0px 0px $accent-lightest;
-      -moz-box-shadow: 4px 0px 0px $accent-lightest, -4px 0px 0px $accent-lightest;
-      box-shadow: 4px 0px 0px $accent-lightest, -4px 0px 0px $accent-lightest;
       -webkit-box-decoration-break: clone;
       -moz-box-decoration-break: clone;
       box-decoration-break: clone;
     }
 
-    pre{
-      counter-reset:line-numbering;
+    pre {
+      counter-reset: line-numbering;
       background: $accent-lightest;
       padding: 0px 0px 20px 0;
       width: 600px;
@@ -414,11 +409,11 @@
         /* space after line numbers */
         padding-right: 1em;
         /* space before numbers */
-        padding-left:4px;
+        padding-left: 4px;
         width: 1.5em;
         text-align: right;
         opacity: 0.5;
-        color:$gray-45;
+        color: $gray-45;
       }
 
       &:before {
@@ -426,8 +421,8 @@
         width: calc(100% - 10px);
         height: 20px;
         content: 'Code';
-        background: #EEE9E9;
-        color:$gray-45;
+        background: #eee9e9;
+        color: $gray-45;
         padding-left: 10px;
         margin-bottom: 10px;
         margin-top: 20px;
@@ -482,10 +477,9 @@
         font-size: 15px;
         margin: 0;
         line-height: 24px;
-        @include tablet{
-
+        @include tablet {
         }
-        @include desktop{
+        @include desktop {
           line-height: 32px;
         }
       }

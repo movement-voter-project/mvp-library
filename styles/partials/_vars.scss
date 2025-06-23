@@ -21,5 +21,5 @@ $offwhite: #ececec;
 $accent: #0095ff;
 $navy: #031540;
 $accent-light: lighten($accent, 25%);
-$accent-lightest: #fcf6f6;
+$accent-lightest: $gray-90;
 $accent-dark: darken($accent, 15%);

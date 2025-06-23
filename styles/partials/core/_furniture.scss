@@ -118,13 +118,6 @@
   vertical-align: middle;
   white-space: nowrap;
 
-  @include tablet {
-    width: calc(100% - 20px);
-  }
-  @include desktop {
-    width: calc(100% - 20px);
-  }
-
   .tt-menu {
     background-color: inherit;
     border-color: $gray-40;
@@ -157,23 +150,13 @@
     line-height: 30px;
     font-weight: 400;
     position: relative;
-    width: calc(100% - 65px);
     height: 50px;
+    width: calc(100% - 20px);
     transition: background-color 0.3s;
-    display: inline-block;
     border: 1px solid $gray-40;
     background: $white;
-    -webkit-box-shadow: 5px 5px 0px 0px $gray-25;
-    -moz-box-shadow: 5px 5px 0px 0px $gray-25;
-    box-shadow: 5px 5px 0px 0px $gray-25;
     color: $black;
     float: left;
-    width: calc(100% - 20px);
-    -webkit-transition: background 0.55s ease;
-    -moz-transition: background 0.55s ease;
-    -ms-transition: background 0.55s ease;
-    -o-transition: background 0.55s ease;
-    transition: background 0.55s ease;
     padding-left: 15px;
     -webkit-font-smoothing: antialiased;
 

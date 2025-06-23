@@ -12,19 +12,19 @@ branding:
 # pages/categories, pages/index, partials/search
 landing:
   tagline: Welcome to the MVP Library.
-  viewAll: View All
-  quickLink: <a href="/get-started">Get Started.</a>
+  viewAll: Browse All Pages
+  quickLink: <a href="/intro-to-mvp-library">Get Started.</a>
   modules:
     - tag: team
       label: Find by team
       style: docs
     - tag: featured
-      label: Featured resources
+      label: Featured pages
       style: docs
 
 # partials/footer
 footer:
-  helpText: Questions? Contact the Product & Tech Team.
+  helpText: Questions or feedback? Contact the P&T Team.
   defaultEmail: user@your_organization.com
   buttons:
     edit: Edit/Comment On This Page

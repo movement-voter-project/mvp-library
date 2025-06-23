@@ -121,17 +121,11 @@ button:focus {
   border: 1px solid $btn-homepage-border;
   border-radius: 0;
   color: $main-page-btn-color;
-  -webkit-box-shadow: 2.5px 2.5px 0px -1px $accent-dark;
-  -moz-box-shadow: 2.5px 2.5px 0px -1px $accent-dark;
-  box-shadow: 2.5px 2.5px 0px -1px $accent-dark;
   padding: 5px 12px;
 
   &:hover {
     background: $elem-link-accent;
     color: $white;
-    -webkit-box-shadow: 3px 3px 0px 0px $gray-25;
-    -moz-box-shadow: 3px 3px 0px 0px $gray-25;
-    box-shadow: 3px 3px 0px 0px $gray-25;
     text-decoration: none;
   }
 }
@@ -149,9 +143,6 @@ button:focus {
   border: 1px solid $gray-40;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
-  -webkit-box-shadow: 5px 5px 0px 0px $offwhite;
-  -moz-box-shadow: 5px 5px 0px 0px $offwhite;
-  box-shadow: 5px 5px 0px 0px $offwhite;
   margin-right: 10px;
   color: $gray-20;
   margin-top: 10px;
