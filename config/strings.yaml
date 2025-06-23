@@ -4,31 +4,30 @@
 # base config in partials/branding, partials/head
 branding:
   name: Library
-  prettyName: Team Library
-  org: Your Organization
-  icon: /assets/images/icon-logo.svg
-  favicon: /assets/images/library.ico
+  prettyName: MVP Library
+  org: MVP
+  icon: /assets/images/mvp-circle-icon.png
+  favicon: /assets/images/mvp-circle-icon.png
 
 # pages/categories, pages/index, partials/search
 landing:
-  tagline: One place for your organization's documents.
+  tagline: Welcome to the MVP Library.
   viewAll: View All
   quickLink: <a href="/get-started">Get Started.</a>
   modules:
     - tag: team
       label: Find by team
-      style: button
-    - tag: featured
-      label: Useful Docs
       style: docs
-
+    - tag: featured
+      label: Featured resources
+      style: docs
 
 # partials/footer
 footer:
-  helpText: Questions? Contact your organization's administrators.
+  helpText: Questions? Contact the Product & Tech Team.
   defaultEmail: user@your_organization.com
   buttons:
-    edit: Edit This Page
+    edit: Edit/Comment On This Page
     move: Move This Page
     create: Create New Page
     viewFolder: View Folder
@@ -52,7 +51,7 @@ folder:
     kicker: !!js/function (title) => `Pages in ${title}`
   # partials/sectionList
   sectionList:
-    heading: "Table of Contents:"
+    heading: 'Table of Contents:'
   #partials/siblingList
   siblingList:
     heading: Related Docs
@@ -85,4 +84,3 @@ error:
 # warning messages
 warning:
   duplicate: !!js/function (names, folderId) => `Multiple resources in <a href="https://drive.google.com/drive/u/0/folders/${folderId}" target="_blank">this folder</a> share the same name&#58; ${names.join(', ')}. Only one will be accesible through Library.`
-

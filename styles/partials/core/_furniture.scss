@@ -1,4 +1,3 @@
-
 // Top Banner
 //------------------------------------------------------------------------------
 .masthead {
@@ -27,8 +26,6 @@
 
         .logo {
           height: 23px;
-          filter: invert(100%) brightness(80%);
-          margin-left: -5px;
         }
       }
 
@@ -41,13 +38,14 @@
         border-left: 1px solid rgba(255, 255, 255, 0.35);
         color: $main-homepage-icon-border;
         font-family: $font-branding;
+        font-weight: 900;
         font-size: 18px;
         text-transform: none;
         -webkit-font-smoothing: antialiased;
-        font-weight: 100;
         line-height: 26px;
 
-        a:link, a:visited {
+        a:link,
+        a:visited {
           color: $elem-link-color;
         }
         a:hover {
@@ -65,16 +63,15 @@
       position: fixed;
       top: 9px;
 
-      @include tablet{
+      @include tablet {
         right: 20px;
       }
-      @include desktop{
+      @include desktop {
         right: 20px;
       }
     }
   }
 }
-
 
 // Breadcrumb
 //------------------------------------------------------------------------------
@@ -86,10 +83,10 @@
   margin: 15px 0;
   display: none;
 
-  @include tablet{
+  @include tablet {
     display: block;
   }
-  @include desktop{
+  @include desktop {
     display: block;
   }
 }
@@ -101,17 +98,17 @@
   line-height: 17px;
 
   a:hover {
-      text-decoration: underline;
-      outline: 0;
+    text-decoration: underline;
+    outline: 0;
   }
 
   a:visited {
-      color: $accent-light;
+    color: $accent-light;
   }
 
   a:link {
-      text-decoration: none;
-      color: $accent-light;
+    text-decoration: none;
+    color: $accent-light;
   }
 }
 
@@ -121,13 +118,12 @@
   vertical-align: middle;
   white-space: nowrap;
 
-  @include tablet{
+  @include tablet {
     width: calc(100% - 20px);
   }
-  @include desktop{
+  @include desktop {
     width: calc(100% - 20px);
   }
-
 
   .tt-menu {
     background-color: inherit;
@@ -167,17 +163,17 @@
     display: inline-block;
     border: 1px solid $gray-40;
     background: $white;
-    -webkit-box-shadow: 5px 5px 0px 0px $gray-25;;
-    -moz-box-shadow: 5px 5px 0px 0px $gray-25;;
-    box-shadow: 5px 5px 0px 0px $gray-25;;
+    -webkit-box-shadow: 5px 5px 0px 0px $gray-25;
+    -moz-box-shadow: 5px 5px 0px 0px $gray-25;
+    box-shadow: 5px 5px 0px 0px $gray-25;
     color: $black;
     float: left;
     width: calc(100% - 20px);
-    -webkit-transition: background .55s ease;
-    -moz-transition: background .55s ease;
-    -ms-transition: background .55s ease;
-    -o-transition: background .55s ease;
-    transition: background .55s ease;
+    -webkit-transition: background 0.55s ease;
+    -moz-transition: background 0.55s ease;
+    -ms-transition: background 0.55s ease;
+    -o-transition: background 0.55s ease;
+    transition: background 0.55s ease;
     padding-left: 15px;
     -webkit-font-smoothing: antialiased;
 
@@ -185,9 +181,8 @@
     &:focus,
     &:active {
       outline: none;
-      background:  $accent-lightest;
+      background: $accent-lightest;
     }
-
 
     .tt-hint {
       color: $gray-30;
@@ -206,8 +201,7 @@
     }
   }
 
-
-  .icon{
+  .icon {
     position: relative;
     z-index: 10;
     border: none;
@@ -221,11 +215,11 @@
     font-size: 12pt;
     cursor: pointer;
     margin-left: -50px;
-    -webkit-transition: opacity .35s ease;
-    -moz-transition: opacity .35s ease;
-    -ms-transition: opacity .35s ease;
-    -o-transition: opacity .35s ease;
-    transition: opacity .35s ease;
+    -webkit-transition: opacity 0.35s ease;
+    -moz-transition: opacity 0.35s ease;
+    -ms-transition: opacity 0.35s ease;
+    -o-transition: opacity 0.35s ease;
+    transition: opacity 0.35s ease;
   }
 
   &:hover {
@@ -236,13 +230,13 @@
 
   input::-webkit-input-placeholder,
   input:-moz-placeholder,
-  input:-ms-input-placeholder  {
+  input:-ms-input-placeholder {
     color: $gray-45;
   }
   input:focus::-webkit-input-placeholder,
   input:focus:-moz-placeholder,
-  input:focus:-ms-input-placeholder  {
-    opacity: 0
+  input:focus:-ms-input-placeholder {
+    opacity: 0;
   }
 }
 
@@ -253,18 +247,20 @@
   justify-content: space-between;
 }
 
-
 // User Tools
 //------------------------------------------------------------------------------
 #user-profile {
   a.btn-user-whole {
-    &:link, &:visited {
+    &:link,
+    &:visited {
       color: $elem-link-color;
       font-size: 15px;
       letter-spacing: 0.25px;
       padding: 17px 15px 16px 15px;
     }
-    &:hover, &:active, &:target {
+    &:hover,
+    &:active,
+    &:target {
       text-decoration: none;
       background: darken($elem-active-link-color, 30%);
 
@@ -280,10 +276,10 @@
     margin-right: 5px;
     display: none;
 
-    @include tablet{
+    @include tablet {
       display: inline-block;
     }
-    @include desktop{
+    @include desktop {
       display: inline-block;
     }
   }
@@ -306,16 +302,15 @@
   }
 }
 
-
 .overlay {
-	position: absolute;
-	top: 0;
-	bottom: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-	transition: opacity 100ms;
+  transition: opacity 100ms;
   visibility: hidden;
-	opacity: 0;
+  opacity: 0;
   text-align: left;
 
   .cancel {
@@ -336,18 +331,18 @@
 
 .popup {
   margin-top: 40px;
-	padding: 0 20px 5px 20px;
+  padding: 0 20px 5px 20px;
   background-image: linear-gradient(215deg, $white 0%, $offwhite 100%);
-	border: 1px solid #d4d4d4;
-	width: 260px;
+  border: 1px solid #d4d4d4;
+  width: 260px;
   float: right;
-	position: relative;
+  position: relative;
 
-  @include tablet{
+  @include tablet {
     width: 300px;
     padding: 20px;
   }
-  @include desktop{
+  @include desktop {
     width: 300px;
     padding: 20px;
   }
@@ -377,17 +372,18 @@
     line-height: 30px;
     -webkit-font-smoothing: antialiased;
 
-    @include tablet{
+    @include tablet {
       margin: 10px auto;
       line-height: 32px;
     }
-    @include desktop{
+    @include desktop {
       margin: 10px auto;
       line-height: 32px;
     }
   }
 
-  ul.recently-viewed-content, ul.most-viewed-content {
+  ul.recently-viewed-content,
+  ul.most-viewed-content {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -407,10 +403,10 @@
       margin: 0px 0 5px 0;
       font-size: 15px;
 
-      @include tablet{
+      @include tablet {
         margin: 13px 0;
       }
-      @include desktop{
+      @include desktop {
         margin: 13px 0;
       }
 
@@ -420,7 +416,7 @@
       }
 
       .docs-attr {
-        margin:0;
+        margin: 0;
       }
       .docs-folder {
         display: inline-block;
@@ -452,7 +448,6 @@
   }
 }
 
-
 // the outer wrapper allows us to center the inner-wrapper, which itself
 // fits exactly the image - so in effect, centering the inner wrapper
 .image-wrapper {
@@ -465,7 +460,7 @@
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; 
+  align-items: center;
 
   // The inner wrapper allows us to fit the button onto the bottom right
   // corner no matter the image dimenension
@@ -495,13 +490,13 @@
 }
 
 .image-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000000090; /* search bar icon has z-index of 1*10 */
-    inset: 0px; /* shorthand for top,right,bottom,left at the same time */
-    overflow: hidden;
-    background-color: rgb(255, 255, 255); /* full white allows images to pop */
-    transition: display 0.2s ease 0s;
+  display: none;
+  position: fixed;
+  z-index: 1000000090; /* search bar icon has z-index of 1*10 */
+  inset: 0px; /* shorthand for top,right,bottom,left at the same time */
+  overflow: hidden;
+  background-color: rgb(255, 255, 255); /* full white allows images to pop */
+  transition: display 0.2s ease 0s;
 }
 
 .image-modal .img-wrapper {
@@ -521,24 +516,23 @@
 }
 
 .image-modal .close {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: transparent;
-    cursor: pointer;
-    border: 0.5px solid white;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    transition: all 0.1s ease-in;
-    padding: 0px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0.5px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  transition: all 0.1s ease-in;
+  padding: 0px;
 
-    &:hover, &:focus {
-        background-color: #f9f9f9;
-        border-color: lightgray;
-    }
+  &:hover,
+  &:focus {
+    background-color: #f9f9f9;
+    border-color: lightgray;
+  }
 }
-
-
