@@ -1,7 +1,7 @@
 {
-  "name": "library",
-  "version": "1.5.2",
-  "description": "A collaborative newsroom documentation site, powered by Google Docs.",
+  "name": "mvp-library",
+  "version": "1.0.0",
+  "description": "A collaborative documentation site, powered by Google Docs. Fork of NYT Library.",
   "main": "server/index.js",
   "dependencies": {
     "@google-cloud/datastore": "^5.1.0",
@@ -65,16 +65,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nytimes/library.git"
+    "url": "git+https://github.com/movement-voter-project/mvp-library".git
   },
-  "author": "The New York Times",
+  "author": "Alex Melman",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/nytimes/library/issues"
-  },
+
   "engines": {
     "node": ">=14.x",
     "npm": ">=6.14.x"
   },
-  "homepage": "https://github.com/nytimes/library#readme"
+  "homepage": "https://github.com/movement-voter-project/mvp-library#readme"
 }
