@@ -14,7 +14,9 @@ const supportedTypes = new Set(['document', 'spreadsheet', 'text/html'])
 
 const revisionSupportedArr = ['document', 'spreadsheet', 'presentation']
 const revisionSupported = new Set(revisionSupportedArr)
-const revisionMimeSupported = new Set(revisionSupportedArr.map((x) => `application/vnd.google-apps.${x}`))
+const revisionMimeSupported = new Set(
+  revisionSupportedArr.map((x) => `application/vnd.google-apps.${x}`)
+)
 
 exports.fetchDoc = async (id, resourceType, req) => {
   const data = await cache.get(id)
@@ -29,7 +31,20 @@ exports.fetchDoc = async (id, resourceType, req) => {
   const originalRevision = driveDoc[1]
 
   const {html, byline, createdBy, sections} = formatter.getProcessedDocAttributes(driveDoc)
-  const payload = {html, byline, createdBy, sections}
+
+  // Remove empty tables from html (for Google Docs)
+  let cleanedHtml = html
+  if (resourceType === 'document') {
+    const $ = cheerio.load(html)
+    $('table').each(function () {
+      if (!$(this).text().trim()) {
+        $(this).remove()
+      }
+    })
+    cleanedHtml = $.html()
+  }
+
+  const payload = {html: cleanedHtml, byline, createdBy, sections}
 
   // cache only information from document body if mimetype supports revision data
   if (revisionMimeSupported.has(originalRevision.data.mimeType)) {
@@ -66,14 +81,16 @@ async function fetchOriginalRevisions(id, resourceType, req, drive) {
     log.info(`Revision data not supported for ${resourceType}:${id}`)
     return {data: {lastModifyingUser: {}}} // return mock/empty revision object
   }
-  return drive.revisions.get({
-    fileId: id,
-    revisionId: '1',
-    fields: '*'
-  }).catch((err) => {
-    log.warn(`Failed retrieving revision data for ${resourceType}:${id}. Error was:`, err)
-    return {data: {lastModifyingUser: {}}} // return mock/empty revision object
-  })
+  return drive.revisions
+    .get({
+      fileId: id,
+      revisionId: '1',
+      fields: '*'
+    })
+    .catch((err) => {
+      log.warn(`Failed retrieving revision data for ${resourceType}:${id}. Error was:`, err)
+      return {data: {lastModifyingUser: {}}} // return mock/empty revision object
+    })
 }
 
 async function fetch({id, resourceType, req}, authClient) {
@@ -86,15 +103,18 @@ async function fetch({id, resourceType, req}, authClient) {
 }
 
 async function fetchSpreadsheet(drive, id) {
-  const {data} = await drive.files.export({
-    fileId: id,
-    // for mimeTypes see https://developers.google.com/drive/v3/web/manage-downloads#downloading_google_documents
-    mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-  }, {
-    // HTML export for sheets is limiting. Instead, download as a buffer and use
-    // the xlsx library to parse the contents of the file and convert to HTML.
-    responseType: 'arraybuffer'
-  })
+  const {data} = await drive.files.export(
+    {
+      fileId: id,
+      // for mimeTypes see https://developers.google.com/drive/v3/web/manage-downloads#downloading_google_documents
+      mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    },
+    {
+      // HTML export for sheets is limiting. Instead, download as a buffer and use
+      // the xlsx library to parse the contents of the file and convert to HTML.
+      responseType: 'arraybuffer'
+    }
+  )
 
   const spreadsheet = xlsx.read(data, {type: 'buffer'})
   const {SheetNames, Sheets} = spreadsheet
@@ -109,7 +129,7 @@ async function fetchSpreadsheet(drive, id) {
     const table = $('table')
     // add header styles
     const firstRow = $('table tr:first-of-type')
-    const withHeader = firstRow.html().replace(/(<\/?)td(\s+|>)/ig, '$1th$2')
+    const withHeader = firstRow.html().replace(/(<\/?)td(\s+|>)/gi, '$1th$2')
     firstRow.html(withHeader)
     // determine the last row and remove all rows after that
     const max = Object.keys(data)
