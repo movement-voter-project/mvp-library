@@ -65,11 +65,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/movement-voter-project/mvp-library".git
+    "url": "https://github.com/movement-voter-project/mvp-library.git"
   },
   "author": "Alex Melman",
   "license": "Apache-2.0",
-
   "engines": {
     "node": ">=14.x",
     "npm": ">=6.14.x"
