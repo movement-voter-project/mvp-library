@@ -11,7 +11,12 @@ pre {
   white-space: pre-wrap;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-sans;
   margin-top: 45px;
   margin-bottom: 20px;
@@ -25,7 +30,6 @@ a {
     text-decoration: underline;
     outline: 0;
   }
-
 }
 
 input {
@@ -37,7 +41,8 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
-th, td {
+th,
+td {
   padding: 0.25rem 0.5rem;
   text-align: left;
   border: 1px solid $gray-50;
@@ -54,7 +59,7 @@ button:focus {
 .legibility {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "kern";
+  font-feature-settings: 'kern';
 }
 .visually-hidden {
   display: none;
@@ -75,12 +80,12 @@ button:focus {
   color: $btn-default-text-color;
   cursor: pointer;
 
-  @include tablet{
+  @include tablet {
     font-size: 15px;
     line-height: 20px;
     padding: 5px 10px;
   }
-  @include desktop{
+  @include desktop {
     font-size: 15px;
     line-height: 20px;
     padding: 5px 10px;
@@ -93,10 +98,10 @@ button:focus {
   margin: 4px 0 0 0;
   -webkit-font-smoothing: antialiased;
 
-  @include tablet{
+  @include tablet {
     margin: 3px 0 0 0;
   }
-  @include desktop{
+  @include desktop {
     margin: 3px 0 0 0;
   }
 
