@@ -33,7 +33,7 @@ async function handleCategory(req, res) {
   }
 
   // don't try to fetch branch node
-  const contextData = prepareContextualData(data, req.path, breadcrumb, parent, meta.slug)
+  const contextData = prepareContextualData(data, req.path, breadcrumb, parent, meta.slug, meta)
 
   const baseRenderData = Object.assign({}, contextData, {
     url: req.path,
@@ -60,7 +60,9 @@ async function handleCategory(req, res) {
       },
 
       json: () => {
-        const {template, duplicates, ...jsonResponse} = Object.assign({}, baseRenderData, {resourceType})
+        const {template, duplicates, ...jsonResponse} = Object.assign({}, baseRenderData, {
+          resourceType
+        })
         res.json(jsonResponse)
       }
     })
@@ -88,13 +90,15 @@ async function handleCategory(req, res) {
     },
 
     json: () => {
-      const {template, duplicates, ...jsonResponse} = Object.assign({}, renderData, {resourceType})
+      const {template, duplicates, ...jsonResponse} = Object.assign({}, renderData, {
+        resourceType
+      })
       res.json(jsonResponse)
     }
   })
 }
 
-function prepareContextualData(data, url, breadcrumb, parent, slug) {
+function prepareContextualData(data, url, breadcrumb, parent, slug, meta) {
   const breadcrumbInfo = breadcrumb.map(({id}) => getMeta(id))
 
   const {children: siblings} = parent
@@ -117,9 +121,14 @@ function prepareContextualData(data, url, breadcrumb, parent, slug) {
       }
     })
 
-  const {id, originalId} = breadcrumb.length ? breadcrumb[breadcrumb.length - 1] : data
+  // For creating new pages, we need the correct folder ID:
+  // When viewing a folder: use the folder's ID (data.originalId for folders with home docs, data.id otherwise)
+  // When viewing a document: use the document's parent folder ID (meta.folder.id)
+  const currentFolderId =
+    meta.resourceType === 'folder' ? data.originalId || data.id : meta.folder && meta.folder.id
+  
   return {
-    parentId: originalId || id,
+    parentId: currentFolderId,
     parentLinks,
     siblings: siblingLinks,
     children: childrenLinks
